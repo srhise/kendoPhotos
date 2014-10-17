@@ -1,16 +1,54 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title></title>
     <meta charset="utf-8" />
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-
+    <link href="css/style.css" rel="stylesheet" />
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
-    
+    <script src="https://bs-static.cdn.telerik.com/1.2.5/everlive.all.min.js"></script>
+    <script src="scripts/app.js"></script>
 </head>
+
 <body>
-    
+    <!--Home View-->
+    <div id="tabstrip-home" data-role="view" data-transition="slide:left" data-title="Home">
+        <h3>Welcome!</h3>
+        <p>
+            Sean hise is the man.
+        </p>
+    </div>
+    <div id="photos" data-role="view" data-model="listView" data-transition="slide:right" data-title="Photos">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+                <a id="skin-change" data-role="button" data-align="right" data-bind="click:addImage">Upload</a>
+            </div>
+        </header>
+        <ul id="images">
+        </ul>
+        
+        <a id="test" data-bind="click:switchView">test</a>
+    </div>
+    <!--Layout-->
+    <div data-role="layout" data-id="tabstrip-layout">
+        <!--Header-->
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+            </div>
+        </div>
+        <!--Footer-->
+        <div data-role="footer">
+            <div data-role="tabstrip">
+                <a href="#/" data-icon="home">Home</a>
+                <a href="#photos" data-icon="contacts">Photos</a>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

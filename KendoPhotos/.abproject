@@ -5,12 +5,12 @@
   "AppIdentifier": "com.telerik.KendoPhotos",
   "DisplayName": "KendoPhotos",
   "Author": "",
-  "Description": "",
+  "Description": "KendoPhotos",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
-	"2"
+    "2"
   ],
   "iOSBackgroundMode": [],
   "WP8TileTitle": "",

@@ -29,7 +29,7 @@
 
         //skin declaration
         var app = new kendo.mobile.Application(document.body, {
-            platform: "ios7",
+            platform: "ios",
             layout: "tabstrip-layout"
         });
 
