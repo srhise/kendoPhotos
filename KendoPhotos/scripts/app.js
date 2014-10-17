@@ -1,5 +1,7 @@
-(function () {
-    document.addEventListener("deviceready", function () {
+var app = (function (win) {
+    'use strict';
+
+    var onDeviceReady = function () {
 
         var everlive = new Everlive("TdXqRePUqA8r1sdV");
         window.listView = kendo.observable({
@@ -21,32 +23,45 @@
                 };
                 navigator.camera.getPicture(success, error, config);
             },
-            switchView: function() {
+            switchView: function () {
                 alert('test');
-                $.mobile.changePage('#tabstrip-home', { transition: 'flip' });
+                $.mobile.changePage('#tabstrip-home', {
+                    transition: 'flip'
+                });
             }
         });
 
-        //skin declaration
-        var app = new kendo.mobile.Application(document.body, {
-            platform: "ios",
-            layout: "tabstrip-layout"
-        });
+        //loadPhotos();
 
-        function loadPhotos() {
-            everlive.Files.get().then(function (data) {
-                var files = [];
-                data.result.forEach(function (image) {
-                    files.push(image.Uri);
-                });
-                $("#images").kendoMobileListView({
-                    dataSource: files,
-                    template: "<img src='#: data #'>"
-                });
+    };
+
+    // Handle "deviceready" event
+    document.addEventListener('deviceready', onDeviceReady, false);
+
+    function loadPhotos() {
+        everlive.Files.get().then(function (data) {
+            var files = [];
+            data.result.forEach(function (image) {
+                files.push(image.Uri);
             });
-        }
-        loadPhotos();
-
-
+            $("#images").kendoMobileListView({
+                dataSource: files,
+                template: "<img src='#: data #'>"
+            });
+        });
+    }
+    
+    var os = kendo.support.mobileOS,
+    statusBarStyle = os.ios && os.flatVersion >= 700 ? 'black-translucent' : 'black';
+    
+    var mobileApp = new kendo.mobile.Application(document.body, {
+        transition: 'slide',
+        statusBarStyle: statusBarStyle,
+        skin: 'ios7'
     });
-}());
+    
+    return {
+        loadPhotos: loadPhotos,
+        mobileApp: mobileApp
+    };
+}(window));
