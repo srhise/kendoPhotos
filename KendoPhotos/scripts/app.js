@@ -1,16 +1,6 @@
 var app = (function (win) {
     'use strict';
 
-
-    $("#drawer").kendoMobileDrawer({
-        container: "#content-container"
-    });
-
-    $("#drawer-trigger").click(function () {
-        $("#drawer").data("kendoMobileDrawer").show();
-        return false;
-    });
-
     // Global error handling
     var showAlert = function (message, title, callback) {
         navigator.notification.alert(message, callback || function () {}, title, 'OK');
