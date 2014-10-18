@@ -1,9 +1,28 @@
 var app = (function (win) {
     'use strict';
+    
+    // Global error handling
+    var showAlert = function(message, title, callback) {
+        navigator.notification.alert(message, callback || function () {
+        }, title, 'OK');
+    };
 
+    var showError = function(message) {
+        showAlert(message, 'Error occured');
+    };
+    
+    // Global confirm dialog
+    var showConfirm = function(message, title, callback) {
+        navigator.notification.confirm(message, callback || function () {
+        }, title, ['OK', 'Cancel']);
+    };
+    
     var onDeviceReady = function () {
 
-        var everlive = new Everlive("TdXqRePUqA8r1sdV");
+        var el = new Everlive({
+            apiKey: appSettings.everlive.apiKey,
+            scheme: appSettings.everlive.scheme
+        });
         window.listView = kendo.observable({
             addImage: function () {
                 var success = function (data) {
@@ -50,17 +69,20 @@ var app = (function (win) {
             });
         });
     }
-    
+
     var os = kendo.support.mobileOS,
-    statusBarStyle = os.ios && os.flatVersion >= 700 ? 'black-translucent' : 'black';
-    
+        statusBarStyle = os.ios && os.flatVersion >= 700 ? 'black-translucent' : 'black';
+
     var mobileApp = new kendo.mobile.Application(document.body, {
         transition: 'slide',
         statusBarStyle: statusBarStyle,
-        skin: 'ios7'
+        skin: 'flat'
     });
-    
+
     return {
+        showAlert: showAlert,
+        showError: showError,
+        showConfirm: showConfirm,
         loadPhotos: loadPhotos,
         mobileApp: mobileApp
     };
