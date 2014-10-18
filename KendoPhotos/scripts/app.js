@@ -1,22 +1,30 @@
 var app = (function (win) {
     'use strict';
-    
+
+
+    $("#drawer").kendoMobileDrawer({
+        container: "#content-container"
+    });
+
+    $("#drawer-trigger").click(function () {
+        $("#drawer").data("kendoMobileDrawer").show();
+        return false;
+    });
+
     // Global error handling
-    var showAlert = function(message, title, callback) {
-        navigator.notification.alert(message, callback || function () {
-        }, title, 'OK');
+    var showAlert = function (message, title, callback) {
+        navigator.notification.alert(message, callback || function () {}, title, 'OK');
     };
 
-    var showError = function(message) {
+    var showError = function (message) {
         showAlert(message, 'Error occured');
     };
-    
+
     // Global confirm dialog
-    var showConfirm = function(message, title, callback) {
-        navigator.notification.confirm(message, callback || function () {
-        }, title, ['OK', 'Cancel']);
+    var showConfirm = function (message, title, callback) {
+        navigator.notification.confirm(message, callback || function () {}, title, ['OK', 'Cancel']);
     };
-    
+
     var onDeviceReady = function () {
 
         var el = new Everlive({
@@ -74,7 +82,7 @@ var app = (function (win) {
         statusBarStyle = os.ios && os.flatVersion >= 700 ? 'black-translucent' : 'black';
 
     var mobileApp = new kendo.mobile.Application(document.body, {
-        transition: 'slide',
+        transition: 'none',
         statusBarStyle: statusBarStyle,
         skin: 'flat'
     });

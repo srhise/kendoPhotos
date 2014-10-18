@@ -18,14 +18,21 @@
 
 <body>
     <!--Home View-->
-    <div data-role="layout" data-id="default">
-        <!--View content will render here-->
+    <div id="content-container">
+        <div data-role="layout" data-id="default">
+            <!--View content will render here-->
+        </div>
     </div>
     <div id="welcome" data-layout="default" data-role="view" data-title="Home" data-model="app.Login" data-init="app.Login.init" data-show="app.Login.show">
-        <h3>Welcome!</h3>
-        <p>
-            Sean hise is the man.
-        </p>
+        <div data-role="header">
+            <div data-role="navbar">
+                Welcome
+            </div>
+        </div>
+        <form id="login">
+            <input class="form-control" type="text" id="signupUsername" data-bind="value: Username" placeholder="Username" required/>
+            <input class="form-control" type="password" id="signupPassword" data-bind="value: Password" placeholder="Password" required/>
+        </form>
         <p>
             <a data-role="button" href="views/signup.html">Signup for the app</a>
         </p>
