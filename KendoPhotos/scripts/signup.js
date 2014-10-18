@@ -17,7 +17,7 @@ app.Signup = (function () {
         // init form validator
         // Register user after required fields (username and password) are validated in Backend Services
         var signup = function () {
-
+            
             Everlive.$.Users.register(
                 dataSource.Username,
                 dataSource.Password,
@@ -32,20 +32,36 @@ app.Signup = (function () {
         };
         
         var init = function () {
-               
-            console.log('signup init');
+            $signUpForm = $('#signUp');
+            $formFields = $signUpForm.find('input, textarea, select');
+            $signupBtnWrp = $('#signupBtnWrp');
+            validator = $signUpForm.kendoValidator({ validateOnBlur: false }).data('kendoValidator');
+
+            $formFields.on('keyup keypress blur change input', function () {
+                if (validator.validate()) {
+                    $signupBtnWrp.removeClass('disabled');
+                } else {
+                    $signupBtnWrp.addClass('disabled');
+                }
+            });
             
         }
         
         var show = function () {
                
-            console.log('signup show');
+            dataSource = kendo.observable({
+                Username: '',
+                Password: '',
+                DisplayName: '',
+                Email: ''
+            });
+            kendo.bind($('#signUp'), dataSource, kendo.mobile.ui);
             
         }
         
         var hide = function () {
                
-            console.log('signup hide');
+            $signupBtnWrp.addClass('disabled');
             
         }
 
