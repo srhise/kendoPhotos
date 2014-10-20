@@ -3,14 +3,23 @@
 
 <head>
     <title></title>
+
     <meta charset="utf-8" />
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- VENDOR CSS -->    
+    <link href="bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet"> 
+    <link href="lib/kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+
+    <!-- CUSTOM CSS -->  
+    <link href="app/assets/stylesheets/frontend.css" rel="stylesheet">
+
+    <!-- VENDOR JS -->  
     <script src="cordova.js"></script>
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
+    <script src="lib/kendo/js/jquery.min.js"></script>
+    <script src="lib/kendo/js/kendo.mobile.min.js"></script>
     <script src="https://bs-static.cdn.telerik.com/1.2.5/everlive.all.min.js"></script>
+
+    <!-- CUSTOM JS -->  
     <script src="scripts/settings.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/signup.js"></script>
@@ -31,6 +40,11 @@
             </div>
         </div>
         <form id="login">
+            
+            <div class="form-group m-b-10">
+                <input id="accountname" type="text" class="form-control" placeholder="account name">
+            </div><!--//form-group-->
+
             <input class="form-control" type="text" id="signupUsername" data-bind="value: Username" placeholder="Username" required/>
             <input class="form-control" type="password" id="signupPassword" data-bind="value: Password" placeholder="Password" required/>
         </form>

@@ -1,0 +1,701 @@
+/*                                                                                                                  
+project name here...                                                                                                                                                                                         
+*/
+
+@import 'base.less';
+
+/* UTILITIES
+     Set of utilities that make up the basic plumbing of the website.
+     e.g. backgrounds, borders, base-spacing
+*/
+//display
+.d-block                                        {}
+.d-iblock                                       {}
+.d-table                                        {}
+.d-cell                                         {}
+.d-none                                         {}
+
+//opacity
+.opacity-0                                      {}
+.opacity-1                                      {}
+.opacity-025                                    {}
+.opacity-050                                    {}
+.opacity-075                                    {}
+
+//position
+.pos-rel                                        {}
+.pos-fixed                                      {}
+.pos-abs                                        {}
+.flt-none                                       {}
+.ovr-hidden                                     {}
+
+//Position element to absolute center (requires fixed width and height)
+.abs-center                                     {}
+.abs-middle                                     {}
+
+//height
+.h-inherit                                      {}
+html, body{                                     height: 100%}
+
+//center relatively positioned element
+.center{                                        .center-block}
+
+//cursor
+.pointer                                        {}
+
+//reflection
+.reflection                                     {} 
+    /* Implementation 
+    #somediv {
+        .reflect(20%, 0.2);
+    }*/
+
+//fa lists
+.fa-li{                                         text-align:left; width:100%}
+
+//form groups
+.form-group {                                   margin-bottom: 5px;}
+
+//BS Btn Group
+.btn-group .btn{                                .p-0;}
+.btn-group .btn > div{                            padding: 6px 12px;}
+.btn.active {
+                                                background-color: @blue;
+                                                color: white;
+}
+
+//bs tabs
+.nav-tabs>li.active>a, 
+.nav-tabs>li.active>a:hover, 
+.nav-tabs>li.active>a:focus {
+                                                .clr-gray-darker;
+                                                background-color: #fff;
+}
+
+//thumbnail
+.thumbnail {
+                                                .d-iblock;
+                                                padding: 4px;
+                                                background-color:transparent;
+}
+
+//rules
+hr.dotted {
+                                                .m-tb-5;
+                                                border: 0;
+                                                border-top:1px @gray dotted;
+}
+
+//tabcontent
+.tab-pane{                                      display:none}
+.tab-pane.active{                               display:block}
+
+/*LAYOUT
+  ------------------------------------------------------*/
+.splitcol div[class^='col']{                    padding-left:0px; padding-right:0px;}
+.splitcol div[class^='col']:first-child {       padding-left:0px!important}
+.splitcol div[class^='col']:last-child {        padding-right:0px!important}
+
+
+// paddings
+.p-0                                            {}
+.p-t-0                                          {}
+.p-r-0                                          {}
+.p-b-0                                          {}
+.p-l-0                                          {}
+
+.p-lr-0                                         {}
+.p-tb-0                                         {}
+
+.p-5                                           {}
+.p-t-5                                         {}
+.p-r-5                                         {}
+.p-b-5                                         {}
+.p-l-5                                         {}
+
+.p-lr-5                                        {}
+.p-tb-5                                        {}
+
+.p-10                                           {}
+.p-t-10                                         {}
+.p-r-10                                         {}
+.p-b-10                                         {}
+.p-l-10                                         {}
+
+.p-lr-10                                        {}
+.p-tb-10                                        {}
+
+.p-20                                           {}
+.p-t-20                                         {}
+.p-r-20                                         {}
+.p-b-20                                         {}
+.p-l-20                                         {}
+
+.p-lr-20                                        {}
+.p-tb-20                                        {}
+
+.p-30                                           {}
+.p-t-30                                         {}
+.p-r-30                                         {}
+.p-b-30                                         {}
+.p-l-30                                         {}
+
+.p-lr-30                                        {}
+.p-tb-30                                        {}
+
+.p-40                                           {}
+.p-t-40                                         {}
+.p-r-40                                         {}
+.p-b-40                                         {}
+.p-l-40                                         {}
+
+.p-lr-40                                        {}
+.p-tb-40                                        {}
+
+// margins
+.m-0                                            {}
+.m-t-0                                          {}
+.m-r-0                                          {}
+.m-b-0                                          {}
+.m-l-0                                          {}
+
+.m-lr-0                                         {}
+.m-tb-0                                         {}
+
+.m-5                                            {}
+.m-t-5                                          {}
+.m-r-5                                          {}
+.m-b-5                                          {}
+.m-l-5                                          {}
+
+.m-lr-5                                         {}
+.m-tb-5                                        {}
+
+.m-10                                           {}
+.m-t-10                                         {}
+.m-r-10                                         {}
+.m-b-10                                         {}
+.m-l-10                                         {}
+
+.m-lr-10                                        {}
+.m-tb-10                                        {}
+
+.m-20                                           {}
+.m-t-20                                         {}
+.m-r-20                                         {}
+.m-b-20                                         {}
+.m-l-20                                         {}
+
+.m-lr-20                                        {}
+.m-tb-20                                        {}
+
+.m-30                                           {}
+.m-t-30                                         {}
+.m-r-30                                         {}
+.m-b-30                                         {}
+.m-l-30                                         {}
+
+.m-lr-30                                        {}
+.m-tb-30                                        {}
+
+.m-40                                           {}
+.m-t-40                                         {}
+.m-r-40                                         {}
+.m-b-40                                         {}
+.m-l-40                                         {}
+
+.m-lr-40                                        {}
+.m-tb-40                                        {}
+
+
+// background colors
+.bg-gray-lightest                               {}
+.bg-gray-lighter                                {}
+.bg-gray-light                                  {}
+.bg-gray                                        {}
+.bg-gray-dark                                   {}
+.bg-gray-darker                                 {}
+.bg-black                                       {}
+.bg-blue-light                                  {}
+.bg-blue                                        {}
+.bg-green-light                                 {}
+.bg-green                                       {}
+.bg-purple                                      {}
+.bg-white                                       {}
+
+
+//borders
+.b                                              {}
+.b-none                                         {}
+.b-bot-none                                     {}
+.b-top-none                                     {}
+.b-l-none                                       {}
+.b-r-none                                       {}
+.b-tb-none                                      {}
+.b-lr-none                                      {}
+
+.b-bot-1px                                      {}
+.b-top-1px                                      {}
+.b-l-1px                                        {}
+.b-r-1px                                        {}
+.b-tb-1px                                       {}
+.b-lr-1px                                       {}
+.b-l-dotted                                     {}
+.b-r-dotted                                     {}
+.b-t-dotted                                     {}
+.b-b-dotted                                     {}
+
+.b-lr-dotted                                     {}
+.b-r-white                                     {}
+.b-l-white                                     {}
+.b-lr-white                                     {}
+
+
+
+
+//typography and fonts
+.text-uppercase, 
+.text-uppercase > a                             {}
+.text-no-transform                              {}
+.text-center                                    {}
+.text-right                                     {}
+.text-italic                                    {}
+.text-decoration-none                           {}
+.ltrspacing-snug                               {}
+.ltrspacing-tight                               {}
+.ltrspacing-normal                               {}
+
+//typography and fonts
+.fnt-thn                                        {}
+.fnt-lt                                         {}
+.fnt-reg                                        {}
+.fnt-bld                                        {}
+.fnt-sans                                       {}
+.fnt-serif                                      {}
+
+
+label {
+                                                margin-bottom: 2px;
+                                                font-size: 11px;
+                                                text-transform: uppercase;
+                                                font-weight: normal;
+                                                display: block;
+}
+
+//hyperlinks
+.lnk-white                                      {}
+.lnk-gray-darker                                {}
+.lnk-wrapper, 
+.lnk-wrapper:hover{                             color:inherit!important; text-decoration: none;                                                                 
+}
+
+//trademarks
+.trade{                                         .fnt-12!important; .fnt-lt!important; vertical-align: text-top!important;}
+
+.fnt-10                                         {}
+.fnt-11                                         {}
+.fnt-12                                         {}
+.fnt-14                                         {}
+.fnt-16                                         {}
+.fnt-18                                         {}
+.fnt-24                                         {}
+.fnt-28                                         {}
+.fnt-32                                         {}
+.fnt-36                                         {}
+.fnt-44                                         {}
+.fnt-56                                         {}
+.fnt-64                                         {}
+
+.lh-10                                          {}
+.lh-12                                          {}
+.lh-14                                          {}
+.lh-16                                          {}
+.lh-18                                          {}
+.lh-20                                          {}
+.lh-24                                          {}
+.lh-32                                          {}
+.lh-36                                          {}
+.lh-40                                          {}
+.lh-44                                          {}
+.lh-50                                          {}
+
+
+
+h1{
+                                                font-size: 66px; 
+                                                .fnt-sans; 
+                                                font-weight: 100; 
+                                                color:white;
+                                                .ltrspacing(-3px);
+                                                .lh(54px)
+}
+h1.h1alt{
+                                                font-size: 74px; 
+                                                .fnt-serif; 
+                                                font-weight: 300; 
+                                                color:white;
+}
+h2{
+                                                font-size: 42px; 
+                                                .fnt-sans; 
+                                                font-weight: 700; 
+                                                color:white;
+                                                .ltrspacing(-1px);
+                                                .lh(40px)
+}
+h2.h2alt{
+                                                font-size: 36px; 
+                                                .fnt-serif; 
+                                                font-weight: 300; 
+                                                //color:@gray-darker; 
+}
+
+
+h3{
+                                                font-size: 18px;
+                                                font-weight: 500; 
+                                                color:@gray-dark; 
+                                                margin:0px; 
+                                                margin-bottom:6px;
+                                                margin-top:12px
+}
+h4{
+                                                font-size: 16px;
+                                                font-weight: 700; 
+                                                color:@gray-darker; 
+                                                margin:0px; 
+                                                .p-tb(3px);
+}
+//h4{font-size: 24px;font-weight: 300; color:@gray-darker; margin:0px; margin-bottom:10px; margin-top:10px;}
+
+
+
+// text colors
+.clr-gray-lightest                            {}
+.clr-gray-lighter                             {}
+.clr-gray-light                               {}
+.clr-gray                                     {}
+.clr-gray-dark                                {}
+.clr-gray-darker                              {}
+.clr-black                                    {}
+.clr-blue-light                               {}
+.clr-blue                                     {}
+.clr-green-light                              {}
+.clr-green                                    {}
+.clr-white                                    {}
+.clr-orange                                   {}
+.clr-red                                      {}
+
+
+
+//anchors
+a{                                            border:none; color:@pbAqua;}
+a:hover{                                      text-decoration:underline; cursor: pointer;color:@pbAqua;}
+
+//opacity rollover
+.fade-on-hover                                {}
+
+//buttons
+.removefocusglow                              {}
+
+//inputs
+.form-control {                               font-size: 14px!important;}
+
+//shadows
+.dropshadow90                                 {}
+
+
+
+//icons
+
+//action buttons
+.actbtngroup                                  {}
+.actbtn                                       {}
+
+//social buttons
+.btn-social                                   {}
+.icon-social                                   {}
+.btn-social.facebook,
+.icon-social.facebook{                         background-color: #395799;}
+.btn-social.twitter,
+.icon-social.twitter{                          background-color: #27CDFF;}
+.btn-social.google,
+.icon-social.google{                           background-color: #DD4B39;}
+
+/*appstore buttons*/
+.btnAppStore { 
+                                              transition: background-color 0.2s ease;
+                                              background-color: rgba(0, 0, 0, 0.5);
+                                              background-position: 50% 50%;
+                                              background-repeat: no-repeat;
+                                              .border-radius(4px);
+                                              display: block;
+                                              width: 150px;
+                                              height: 45px;
+                                              text-indent: -9999px;
+                                              .d-iblock; .m-l(4px); .m-t(4px); .pointer; 
+      }
+        .btnAppStore:hover{                   background-color: rgba(0, 0, 0, 0.75);}
+        .btnAppStore:active{                  background-color: rgba(0, 0, 0, 1);}
+    
+#btnApple {                                     background-image: url('@{imagepath}btn-app-store@2x.png');    background-size: 112px 31px;      }
+    #btnApple.gray {                               
+                                                background-image: url('@{imagepath}btn-app-store-gray@2x.png'); 
+                                                border-color:#a9a9a9;   
+     
+    }
+#btnGoogle{                                     background-image: url('@{imagepath}btn-google-play@2x.png');  background-size: 119px 31px;      }
+    #btnGoogle.gray {                               
+                                                background-image: url('@{imagepath}btn-google-play-gray@2x.png'); 
+                                                border-color:#a9a9a9;   
+     
+    }
+
+
+
+
+
+
+
+/* =================================================================
+GLOBAL
+===================================================================*/
+body{ 
+                                                background:#fff;
+                                                background-attachment:fixed;
+                                                background-image: url('@{imagepath}bg_body.jpg');
+                                                background-position: 50% 50%;
+                                                background-repeat: no-repeat;
+                                                background-size: 100% 100%;
+                                                .fnt-14; .fnt-sans; .fnt-lt;
+}
+
+body.home{                                      background-image:none;}
+
+#siteWrapper{                                 max-width:1280px;.center;}
+.scrollablewrapper{                         .p-t(80px;)}
+
+.seccontent{                                  .m-l-20; .m-r(50px);}
+
+//custom buttons
+.btn-outline                                       {}
+a.btn-outline {                                    text-decoration: none; color:inherit;}
+.btn-outline-white                                 {}
+.btn-outline-aqua                                  {}
+.btn-outline-gray                                  {}
+.btn-outline-solid                                   {}
+.btn-solid                                    {}
+.btn-solid.active                             {background-color:@pbAqua}
+
+//input 
+.input-glass                                  {}
+
+//content container
+.contentwell                                    {}
+
+
+//kendo -- could be a problem later...keep an eye on this...
+.k-widget{width:100%!important}
+
+
+
+
+
+//main nav
+#masthead{
+                    .pos-abs;
+                    width:100%; height: 10%; z-index: 10; top:10px;                
+ 
+
+                    #brand{
+                        max-width:91px; height: 100%; .pos-rel;.m-l-20;
+                        background-image: url('@{imagepath}symbol.png');
+                        background-position: 0px 0px;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+
+                    }
+
+
+                    #contactinfo{
+                        height:20px; .fnt-16; right: 20px;
+                        .abs-middle(20px); .fnt-lt;
+                        a{.lnk-white;}
+                        span {.m-lr-5;}
+
+                    }                    
+}
+.footer{
+                    .pos-abs; width:300px; .text-center; bottom:10px;
+                    left: 50%; .m-l(-150px);
+                    img{
+                        .img-responsive; .center; .m-b-30
+                    }
+}
+.footer-rel{
+                    width:300px; .text-center; .pos-rel; .center; .d-block;
+}
+
+#credit{
+    .fnt-12; left:0px; width:150px; .fnt-thn; .pos-abs; left:20px; bottom:20px;
+    a {
+        .clr-white; .fnt-reg;
+        &:hover {.bg-white; .clr-gray; .fnt-12; text-decoration:none;}
+    }
+}
+
+
+
+
+/* =================================================================
+MEDIA QUERIES
+===================================================================*/
+
+  /*STANDARD DESKTOPS*/
+  @media (min-width:1200px) {
+      //anything here is big screen only
+
+      
+      
+  }
+
+    @media (max-width:1280px) {
+    //anything is decent laptop down
+
+  }
+  //special use case for content well arrows
+  @media (max-width:1200px) {
+      //anything is decent laptop down
+
+
+      
+  }
+
+    /*LANDSCAPE TABLET*/
+    @media (max-width:991px) {
+        //anything here is landscape tablet downwards
+
+
+    }
+
+    /*TABLETS TO DESKTOPS*/
+
+
+    /*SMALL SCREEN UP TO INIFINITY*/
+    @media (min-width: 300px) {
+      //anything here goes up to all sizes
+    }
+
+    /*7' PORTRAIT TABLETS ON DOWN*/
+    @media (max-width:767px) {
+    //anything here is isolated to hand-helds like portrait 7' tablets on down like galaxy
+         
+
+
+    }
+
+    /*IPADS*/
+    //iPad in portrait & landscape
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px)  { 
+        /* STYLES GO HERE */
+    }
+
+    //iPad in landscape
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : landscape) { 
+        /* STYLES GO HERE */
+
+
+    }
+
+    //iPad in portrait
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : portrait) {
+     /* STYLES GO HERE */ 
+      //home section
+
+    }
+
+    /*MINI TABLETS*/
+    //iPad mini in portrait & landscape
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px)
+    and (-webkit-min-device-pixel-ratio: 1)  { 
+        /* STYLES GO HERE */
+
+    }
+    //iPad mini in landscape
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : landscape)
+    and (-webkit-min-device-pixel-ratio: 1)  { 
+        //CONSUMER
+
+    }
+    //iPad mini in portrait
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : portrait)
+    and (-webkit-min-device-pixel-ratio: 1)  { 
+        /* STYLES GO HERE */ 
+        
+
+    }
+
+    /*PHONES*/
+    //iPhone 5 in portrait & landscape
+    @media only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 568px) { 
+
+        /* STYLES GO HERE */
+
+    }
+    //iPhone 5 in landscape
+    @media only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 568px) 
+    and (orientation : landscape) { 
+
+
+
+    }
+    //iPhone 5 in portrait
+    @media only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 568px) 
+    and (orientation : portrait) { 
+
+        
+
+    }
+
+
+
+
+
+
+  /*DENSITY QUERIES*/
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+      
+      /* Retina-specific stuff here */
+
+
+
+  }
+
+
+
+
+
+
+
