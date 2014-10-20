@@ -1,0 +1,27 @@
+{
+  "name": "relevance",
+  "version": "0.0.0",
+  "description": "A commercial project",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/srhise/relevance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srhise/relevance/issues"
+  },
+  "homepage": "https://github.com/srhise/relevance",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-less": "~0.10.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-phpunit": "~0.3.3",
+    "grunt-contrib-connect": "~0.7.1"
+  }
+}

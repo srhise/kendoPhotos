@@ -1,3 +1,9 @@
 */bin
 */obj
 *.user-settings.xml
+kendoPhotos/node_modules/
+kendoPhotos/bower_components/
+kendoPhotos/*.log
+kendoPhotos/.DS_Store
+kendoPhotos/build/
+kendoPhotos/dist/
