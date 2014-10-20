@@ -11,19 +11,48 @@ app.Login = (function () {
         // init form validator
         var init = function () {
                
-            console.log('login init');
+            $loginUsername = $('#loginUsername');
+            $loginPassword = $('#loginPassword');
             
         }
         
         var show = function() {
             
-            console.log('login show');
-            
+            $loginUsername.val('');
+            $loginPassword.val('');            
+        
+        }
+
+        var login = function() {
+
+            var username = $loginUsername.val();
+            var password = $loginPassword.val();
+
+            // Authenticate using the username and password
+            app.everlive.Users.login(username, password)
+            .then(function () {
+                // EQATEC analytics monitor - track login type
+                if (isAnalytics) {
+                    analytics.TrackFeature('Login.Regular');
+                }
+
+                return app.Users.load();
+            })
+            .then(function () {
+
+                app.mobileApp.navigate('views/photos.html');
+            })
+            .then(null,
+                  function (err) {
+                      app.showError(err.message);
+                  }
+            );
         }
        
         return {
             init: init,
-            show: show
+            show: show,
+            login: login
         };
 
     }());

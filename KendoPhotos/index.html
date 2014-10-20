@@ -42,15 +42,17 @@
         <form id="login">
             
             <div class="form-group m-b-10">
-                <input id="signupUsername" type="text" class="form-control" data-bind="value: Username" placeholder="Username"/>
+                <input id="loginUsername" type="text" class="form-control" data-bind="value: Username" placeholder="Username"/>
             </div><!--//form-group-->
 
             <div class="form-group m-b-10">
-                <input id="signupPassword" type="text" class="form-control" data-bind="value: Password" placeholder="Password" required/>
+                <input id="loginPassword" type="text" class="form-control" data-bind="value: Password" placeholder="Password" required/>
             </div><!--//form-group-->
 
         </form>
-        <a id="loginButton" data-role="button" class="btn btn-primary">Login</a>
+        <span id="login" data-role="touch" data-bind="events: { tap: login }">
+            <a data-role="button" class="btn btn-login">Login</a>
+        </span>
         <a data-role="button" class="btn" href="views/signup.html">Signup</a>
         
     </div>
