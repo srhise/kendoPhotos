@@ -20,7 +20,9 @@ app.Users = (function () {
             .then(function (data) {
 
                 var currentUserData = data.result;
-                currentUserData.PictureUrl = app.helper.resolveProfilePictureUrl(currentUserData.Picture);
+                if (currentUserData.Picture) {
+                    currentUserData.PictureUrl = app.helper.resolveProfilePictureUrl(currentUserData.Picture);
+                }                
                 currentUser.set('data', currentUserData);
 
                 // Get the data about all registered users
