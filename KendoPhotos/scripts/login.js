@@ -7,6 +7,9 @@ app.Login = (function () {
     'use strict';
     var loginViewModel = (function () {
 
+        var $loginUsername;
+        var $loginPassword;
+
         // Executed after Signup view initialization
         // init form validator
         var init = function () {
@@ -32,7 +35,7 @@ app.Login = (function () {
             app.everlive.Users.login(username, password)
             .then(function () {
                 // EQATEC analytics monitor - track login type
-                if (isAnalytics) {
+                if (typeof isAnalytics != "undefined") {
                     analytics.TrackFeature('Login.Regular');
                 }
 

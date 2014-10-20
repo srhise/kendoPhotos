@@ -15,12 +15,13 @@ var app = (function (win) {
         navigator.notification.confirm(message, callback || function () {}, title, ['OK', 'Cancel']);
     };
 
-    var onDeviceReady = function () {
+    var el = new Everlive({
+        apiKey: appSettings.everlive.apiKey,
+        scheme: appSettings.everlive.scheme
+    });
 
-        var el = new Everlive({
-            apiKey: appSettings.everlive.apiKey,
-            scheme: appSettings.everlive.scheme
-        });
+    var onDeviceReady = function () {
+        
         window.listView = kendo.observable({
             addImage: function () {
                 var success = function (data) {
@@ -82,6 +83,7 @@ var app = (function (win) {
         showError: showError,
         showConfirm: showConfirm,
         loadPhotos: loadPhotos,
-        mobileApp: mobileApp
+        mobileApp: mobileApp,
+        everlive: el
     };
 }(window));
