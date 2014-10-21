@@ -51,7 +51,7 @@ app.Login = (function () {
             })
             .then(null,
                   function (err) {
-                      app.showError(err.message);
+                      swal(err.message);
                   }
             );
             
