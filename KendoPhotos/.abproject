@@ -4,7 +4,7 @@
   "projectVersion": 1,
   "AppIdentifier": "com.telerik.KendoPhotos",
   "DisplayName": "KendoPhotos",
-  "Author": "",
+  "Author": "Sean Hise",
   "Description": "KendoPhotos",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
