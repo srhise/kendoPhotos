@@ -9,7 +9,11 @@ app.Login = (function () {
 
         var $loginUsername;
         var $loginPassword;
-
+        
+        $('#resetPassword').on('click', function() {
+              resetPassword(); 
+        });
+        
         // Executed after Signup view initialization
         // init form validator
         var init = function () {
@@ -50,12 +54,18 @@ app.Login = (function () {
                       app.showError(err.message);
                   }
             );
+            
+        }
+        
+        var resetPassword = function() {
+            app.mobileApp.navigate('views/resetPassword.html');
         }
        
         return {
             init: init,
             show: show,
-            login: login
+            login: login,
+            resetPassword: resetPassword
         };
 
     }());
