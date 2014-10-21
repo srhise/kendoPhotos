@@ -37,10 +37,10 @@ app.resetPassword = (function () {
                 contentType: "application/json",
                 data: JSON.stringify(object),
                 success: function (data) {
-                    swal("Password is reset.");
+                    alert("Password is reset.");
                 },
                 error: function (error) {
-                    swal(JSON.stringify(error));
+                    alert(JSON.stringify(error));
                 }
             });
         }
