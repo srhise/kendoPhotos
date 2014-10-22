@@ -389,8 +389,8 @@ h4{
 
 
 //anchors
-a{                                            border:none; color:@pbAqua;}
-a:hover{                                      text-decoration:underline; cursor: pointer;color:@pbAqua;}
+a{                                            border:none; color:@aqua;}
+a:hover{                                      text-decoration:underline; cursor: pointer;color:@aqua;}
 
 //opacity rollover
 .fade-on-hover                                {}
@@ -454,21 +454,20 @@ a:hover{                                      text-decoration:underline; cursor:
 
 
 
-
-
+/* =================================================================
+KENDO OVERRIDES
+===================================================================*/
+.km-flat, .km-flat .km-navbar, .km-flat .km-detail, .km-flat .km-content {
+color: #fff;
+background-color:transparent;
+}
 
 /* =================================================================
 GLOBAL
 ===================================================================*/
-.km-flat {
-/* font: normal 1em "HelveticaNeue Light","Roboto Light","Slate Light","Segoe WP",NokiaPureTextLight,sans-serif; */
-}
-.km-pane, .km-shim {
-/* font-family: sans-serif; */
-}
 
 body{ 
-                                                background:#fff;
+                                                background-color:#fff;
                                                 background-attachment:fixed;
                                                 background-image: url('@{imagepath}bg_body.jpg');
                                                 background-position: 50% 50%;
@@ -477,32 +476,85 @@ body{
                                                 .fnt-14; .fnt-sans; .fnt-lt;
 }
 
-body.home{                                      background-image:none;}
+//view cancel button
+#btnCancel{
+                                                width:24px; height: 24px;
+                                                .pos-rel; .d-block; .pull-right; .m-r-20;
+                                                background-image: url('@{imagepath}icon-cancel.png');
+                                                background-position: 50% 50%;
+                                                background-repeat: no-repeat;
+                                                background-size: 100% 100%;
+}
 
-#siteWrapper{                                 max-width:1280px;.center;}
-.scrollablewrapper{                         .p-t(80px;)}
-
-.seccontent{                                  .m-l-20; .m-r(50px);}
 
 //custom buttons
-.btn-outline                                       {}
-a.btn-outline {                                    text-decoration: none; color:inherit;}
-.btn-outline-white                                 {}
-.btn-outline-aqua                                  {}
-.btn-outline-gray                                  {}
-.btn-outline-solid                                   {}
-.btn-solid                                    {}
-.btn-solid.active                             {background-color:@pbAqua}
+.btn-outline { 
+                                                display: inline-block;
+                                                margin-bottom: 0;
+                                                font-family: "museo-sans"; .fnt-thn;
+                                                text-align: center;
+                                                vertical-align: middle;
+                                                cursor: pointer;
+                                                background-image: none;
+                                                border: 1px solid transparent;
+                                                white-space: nowrap;
+                                                padding: 12px 26px;
+                                                font-size: 18px;
+                                                line-height: 1.42857143;
+                                                border-radius: 4px;
+                                                -webkit-user-select: none;
+                                                -moz-user-select: none;
+                                                -ms-user-select: none;
+                                                user-select: none;
+                                                background-color: transparent;
+}
+a.btn-outline {                                 text-decoration: none; color:inherit;}
+
+.btn-outline-white{
+                                                border-color:#fff;
+                                                &:hover {color:#fff}
+                                                &:active {opacity: 1;color:@gray-lightest}
+}
+.btn-outline-aqua{
+                                                border-color:@aqua; color:@aqua!important;
+                                                &:hover {color:@aqua}
+                                                &:active {opacity: 1;}
+}
+.btn-outline-gray{
+                                                border-color:@gray; color:@gray;
+                                                &:hover {color:@gray}
+                                                &:active {opacity: 1;}
+}
+.btn-outline-solid-aqua{
+                                                background-color:@aqua
+
+}
+
+
+//solid buttons
+.btn-solid { 
+                                                    transition: background-color 0.2s ease;
+                                                    background-color: rgba(0, 0, 0, 0.5);
+                                                    background-position: 50% 50%;
+                                                    background-repeat: no-repeat;
+                                                    padding: 5px 26px;
+                                                    .border-radius(4px);
+                                                    display: block;.fnt-sz(18px);.lh(14px);
+                                                    color:white;
+                                                    .d-iblock; .m-l(4px); .m-t(4px); .pointer; 
+                                                    &:hover {background-color: rgba(0, 0, 0, 0.75);}
+                                                    &:active {background-color:rgba(0, 0, 0, 1);}
+}
+.btn-solid.active   {                               background-color:@aqua}
 
 //input 
-.input-glass                                  {}
+.input-glass                                        {}
 
 //content container
-.contentwell                                    {}
+.contentwell                                        {}
 
 
-//kendo -- could be a problem later...keep an eye on this...
-.k-widget{width:100%!important}
+
 
 
 

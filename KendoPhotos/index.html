@@ -34,18 +34,32 @@
 </head>
 
 <body class="fnt-sans">
-    <!--Home View-->
+    <!--Home View
     <div id="content-container">
         <div data-role="layout" data-id="default">
-            <!--View content will render here-->
         </div>
-    </div>
+    </div>-->
+
+    <!--start:view-->
     <div id="welcome" data-layout="default" data-role="view" data-title="Home" data-model="app.Login" data-init="app.Login.init" data-show="app.Login.show">
-        <div data-role="header">
-            <div data-role="navbar">
-                Welcome
+
+        <!--view controls-->
+        <div class="row m-lr-0 m-tb-20">
+            <!--cancel btn-->
+            <a id="btnCancel"></a>
+        </div>
+        <!--///view controls-->
+
+        <div class="row m-lr-0">
+            <div class="col-xs-8 col-xs-offset-2">
+                <!--content-->
+ 
+                <!--///content-->
             </div>
         </div>
+
+
+
         <form id="login">
             
             <div class="form-group m-b-10">
@@ -68,6 +82,7 @@
            
         
     </div>
+    <!--///view-->
 </body>
 
 </html>
