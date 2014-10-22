@@ -10,6 +10,15 @@ var app = (function (win) {
         showAlert(message, 'Error occured');
     };
 
+    var isNullOrEmpty = function (value) {
+        return typeof value === 'undefined' || value === null || value === '';
+    };
+
+    var isKeySet = function (key) {
+        var regEx = /^\$[A-Z_]+\$$/;
+        return !isNullOrEmpty(key) && !regEx.test(key);
+    };
+
     // Global confirm dialog
     var showConfirm = function (message, title, callback) {
         navigator.notification.confirm(message, callback || function () {}, title, ['OK', 'Cancel']);
@@ -21,7 +30,7 @@ var app = (function (win) {
     });
 
     var onDeviceReady = function () {
-        
+
         window.listView = kendo.observable({
             addImage: function () {
                 var success = function (data) {
@@ -83,6 +92,8 @@ var app = (function (win) {
         showError: showError,
         showConfirm: showConfirm,
         loadPhotos: loadPhotos,
+        isNullOrEmpty: isNullOrEmpty,
+        isKeySet: isKeySet,
         mobileApp: mobileApp,
         everlive: el
     };
