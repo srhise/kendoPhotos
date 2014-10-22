@@ -60,11 +60,108 @@ app.Login = (function () {
         var resetPassword = function() {
             app.mobileApp.navigate('views/resetPassword.html');
         }
+        
+        // Authenticate using Facebook credentials
+        var loginWithFacebook = function() {
+
+            if (!isFacebookLogin) {
+                return;
+            }
+            if (isInMistSimulator) {
+                showMistAlert();
+                return;
+            }
+            var facebookConfig = {
+                name: 'Facebook',
+                loginMethodName: 'loginWithFacebook',
+                endpoint: 'https://www.facebook.com/dialog/oauth',
+                response_type: 'token',
+                client_id: appSettings.facebook.appId,
+                redirect_uri: appSettings.facebook.redirectUri,
+                access_type: 'online',
+                scope: 'email',
+                display: 'touch'
+            };
+            var facebook = new IdentityProvider(facebookConfig);
+            app.mobileApp.showLoading();
+
+            facebook.getAccessToken(function(token) {
+                app.everlive.Users.loginWithFacebook(token)
+                .then(function () {
+                    // EQATEC analytics monitor - track login type
+                    if (isAnalytics) {
+                        analytics.TrackFeature('Login.Facebook');
+                    }
+                    return app.Users.load();
+                })
+                .then(function () {
+                    app.mobileApp.hideLoading();
+                    app.mobileApp.navigate('views/activitiesView.html');
+                })
+                .then(null, function (err) {
+                    app.mobileApp.hideLoading();
+                    if (err.code == 214) {
+                        app.showError('The specified identity provider is not enabled in the backend portal.');
+                    } else {
+                        app.showError(err.message);
+                    }
+                });
+            });
+        };
+
+        var loginWithGoogle = function () {
+
+            if (!isGoogleLogin) {
+                return;
+            }
+            if (isInMistSimulator) {
+                showMistAlert();
+                return;
+            }
+            var googleConfig = {
+                name: 'Google',
+                loginMethodName: 'loginWithGoogle',
+                endpoint: 'https://accounts.google.com/o/oauth2/auth',
+                response_type: 'token',
+                client_id: appSettings.google.clientId,
+                redirect_uri: appSettings.google.redirectUri,
+                scope: 'https://www.googleapis.com/auth/userinfo.profile',
+                access_type: 'online',
+                display: 'touch'
+            };
+            var google = new IdentityProvider(googleConfig);
+            app.mobileApp.showLoading();
+
+            google.getAccessToken(function(token) {
+                app.everlive.Users.loginWithGoogle(token)
+                .then(function () {
+                    // EQATEC analytics monitor - track login type
+                    if (isAnalytics) {
+                        analytics.TrackFeature('Login.Google');
+                    }
+                    return app.Users.load();
+                })
+                .then(function () {
+                    app.mobileApp.hideLoading();
+                    app.mobileApp.navigate('views/activitiesView.html');
+                })
+                .then(null, function (err) {
+                    app.mobileApp.hideLoading();
+                    if (err.code == 214) {
+                        app.showError('The specified identity provider is not enabled in the backend portal.');
+                    } else {
+                        app.showError(err.message);
+                    }
+                });
+            });
+        };
        
         return {
             init: init,
             show: show,
             login: login,
+            loginWithFacebook: loginWithFacebook,
+            loginWithGoogle: loginWithGoogle,
             resetPassword: resetPassword
         };
 
