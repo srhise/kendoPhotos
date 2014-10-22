@@ -82,7 +82,7 @@ var app = (function (win) {
         statusBarStyle = os.ios && os.flatVersion >= 700 ? 'black-translucent' : 'black';
 
     var mobileApp = new kendo.mobile.Application(document.body, {
-        transition: 'none',
+        transition: 'slide',
         statusBarStyle: statusBarStyle,
         skin: 'flat'
     });
