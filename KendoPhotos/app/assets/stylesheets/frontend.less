@@ -298,6 +298,7 @@ label {
 .fnt-14                                         {}
 .fnt-16                                         {}
 .fnt-18                                         {}
+.fnt-22                                         {}
 .fnt-24                                         {}
 .fnt-28                                         {}
 .fnt-32                                         {}
@@ -495,10 +496,10 @@ body{
                                                 text-align: center;
                                                 vertical-align: middle;
                                                 cursor: pointer;
-                                                background-image: none;
+                                                background-image: none!important;
                                                 border: 1px solid transparent;
                                                 white-space: nowrap;
-                                                padding: 12px 26px;
+                                                padding: 12px 26px!important;
                                                 font-size: 18px;
                                                 line-height: 1.42857143;
                                                 border-radius: 4px;
@@ -506,17 +507,17 @@ body{
                                                 -moz-user-select: none;
                                                 -ms-user-select: none;
                                                 user-select: none;
-                                                background-color: transparent;
+                                                background-color: transparent!important;
 }
 a.btn-outline {                                 text-decoration: none; color:inherit;}
 
 .btn-outline-white{
-                                                border-color:#fff;
+                                                border-color:#fff!important;
                                                 &:hover {color:#fff}
                                                 &:active {opacity: 1;color:@gray-lightest}
 }
 .btn-outline-aqua{
-                                                border-color:@aqua; color:@aqua!important;
+                                                border-color:@aqua!important; color:@aqua!important;
                                                 &:hover {color:@aqua}
                                                 &:active {opacity: 1;}
 }
@@ -533,22 +534,74 @@ a.btn-outline {                                 text-decoration: none; color:inh
 
 //solid buttons
 .btn-solid { 
-                                                    transition: background-color 0.2s ease;
-                                                    background-color: rgba(0, 0, 0, 0.5);
-                                                    background-position: 50% 50%;
-                                                    background-repeat: no-repeat;
-                                                    padding: 5px 26px;
-                                                    .border-radius(4px);
-                                                    display: block;.fnt-sz(18px);.lh(14px);
-                                                    color:white;
-                                                    .d-iblock; .m-l(4px); .m-t(4px); .pointer; 
-                                                    &:hover {background-color: rgba(0, 0, 0, 0.75);}
-                                                    &:active {background-color:rgba(0, 0, 0, 1);}
+                                                    display: inline-block;
+                                                margin-bottom: 0;
+                                                font-family: "museo-sans"; .fnt-thn;
+                                                text-align: center;
+                                                vertical-align: middle;
+                                                cursor: pointer;
+                                                background-image: none!important;
+                                                border: 1px solid transparent;
+                                                white-space: nowrap;
+                                                padding: 12px 26px!important;
+                                                font-size: 18px;
+                                                line-height: 1.42857143;
+                                                border-radius: 4px;
+                                                -webkit-user-select: none;
+                                                -moz-user-select: none;
+                                                -ms-user-select: none;
+                                                user-select: none;
+                                                background-color: @gray;
 }
+.btn-solid-aqua   {                             background-color:@aqua}
+.btn-solid-facebook   {                         background-color:#37559B}
+
 .btn-solid.active   {                               background-color:@aqua}
 
-//input 
-.input-glass                                        {}
+//inputs
+.input-glass, .form-control.input-glass {
+                      min-height: 40px;
+                      line-height: 40px;
+                      display: block;
+                      width: 100%; font-family: @font-family-sans-serif;
+                      padding: 6px 12px;
+                      background: rgba(0, 0, 0, 0.3);
+                      border: none;
+                      outline: none;
+                      border: 1px solid rgba(0, 0, 0, 0.2);
+                      border-radius: 4px;
+                      color: rgba(255, 255, 255, 0.9);
+                      box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+                      -webkit-transition: box-shadow 0.4s ease;
+                      -moz-transition: box-shadow 0.4s ease;
+                      transition: box-shadow 0.4s ease;
+                        &:focus {
+                          box-shadow: inset 0 -5px 45px rgba(150, 150, 150, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+                          outline: none;
+                        }
+}
+
+.input-outline, .form-control.input-outline {
+                      min-height: 40px;
+                      line-height: 40px;
+                      display: block;
+                      width: 100%; font-family: @font-family-sans-serif;
+                      padding: 6px 12px;
+                      background: transparent;
+                      border: none;
+                      outline: none;
+                      border: 1px solid rgba(255, 255, 255, 0.4);
+                      border-radius: 4px;
+                      color: rgba(255, 255, 255, 0.9);
+                      box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+                      -webkit-transition: box-shadow 0.4s ease;
+                      -moz-transition: box-shadow 0.4s ease;
+                      transition: box-shadow 0.4s ease;
+                        &:focus {
+                          box-shadow: inset 0 -5px 45px rgba(150, 150, 150, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+                          outline: none;
+                        }
+}
 
 //content container
 .contentwell                                        {}
@@ -560,47 +613,7 @@ a.btn-outline {                                 text-decoration: none; color:inh
 
 
 
-//main nav
-#masthead {
-    .pos-abs;
-    width:100%; height: 10%; z-index: 10; top:10px;                
 
-    #brand{
-        max-width:91px; height: 100%; .pos-rel;.m-l-20;
-        background-image: url('@{imagepath}symbol.png');
-        background-position: 0px 0px;
-        background-repeat: no-repeat;
-        background-size: contain;
-
-    }
-
-
-    #contactinfo{
-        height:20px; .fnt-16; right: 20px;
-        .abs-middle(20px); .fnt-lt;
-        a{.lnk-white;}
-        span {.m-lr-5;}
-
-    }                    
-}
-.footer{
-                    .pos-abs; width:300px; .text-center; bottom:10px;
-                    left: 50%; .m-l(-150px);
-                    img{
-                        .img-responsive; .center; .m-b-30
-                    }
-}
-.footer-rel{
-                    width:300px; .text-center; .pos-rel; .center; .d-block;
-}
-
-#credit{
-    .fnt-12; left:0px; width:150px; .fnt-thn; .pos-abs; left:20px; bottom:20px;
-    a {
-        .clr-white; .fnt-reg;
-        &:hover {.bg-white; .clr-gray; .fnt-12; text-decoration:none;}
-    }
-}
 
 /* =================================================================
 MEDIA QUERIES
